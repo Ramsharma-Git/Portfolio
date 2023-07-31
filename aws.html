@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"> 
+<head>
+    <title>Projects</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="../assets2/icon4.png" type="image/x-icon">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-5.css">
+	<style>
+		.cmd{
+			background-color: rgba(0, 0, 0, 0.9); border-radius: 0.2ch; padding: 12px; color: whitesmoke;
+		}
+        
+        .myimg{
+            display: block;
+            width: 100%;
+        }
+
+
+    </style>
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Portfolio</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+							
+					
+					<div class="bio mb-3">
+					<ul class="social-list list-inline py-3 mx-auto">
+			           
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="servers.html">Servers</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="ansible.html">Ansible</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="docker.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="jenkins.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="monitoring.html">Monitoring</a>
+					</li>
+					<li class="nav-item active">
+					    <a class="nav-link" href="aws.html">AWS</a>
+					</li>
+					<!--
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Nagios</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">AWS</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Kubernetes</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Terraform</a>
+					</li>
+					-->
+				</ul>
+				
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h1 class="">Amazon Web Service</h1>
+			    <div class="intro"> </div>
+			   
+		    </div><!--//container-->
+	    </section>
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		        <div>
+
+
+			      <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Hosting My Portfolio to AWS S3 Bucket</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Amazon S3 (Simple Storage Service) is a cloud-based storage service offered by Amazon Web Services (AWS). It provides developers and businesses with secure, durable, and highly scalable object storage for a wide variety of data types, including documents, images, videos, backups, and application data. We can also host Static Website on it, the steps to do so are as follows : </p><br>
+							 <p><b>1. Create an S3 Bucket :</b> Go to your AWS Dashbord and then go to S3 service. Here you have to create a bucket with the same name of your Domain.</p>
+							 <img class="myimg" src="assets2/img/S3-1.png">
+							 <br>
+							 <p>In my case i have created a bucket with the name <b>ramsharma.site</b></p>
+							 <img class="myimg" src="assets2/img/S3-2.png">
+							 <br><p>Uncheck the <b>Block all public access</b>, and click to create bucket.</p>
+							 <img class="myimg" src="assets2/img/S3-3.png"><br>
+							 <img class="myimg" src="assets2/img/S3-4.png"><br>
+							 <br><p><b>2. Upload the Website files :</b> After creating the Bucket, we have to upload the files which containes the website code.</p>
+							 <img class="myimg" src="assets2/img/S3-5.png"><br>
+							 <img class="myimg" src="assets2/img/S3-6.png"><br>
+							 <img class="myimg" src="assets2/img/S3-7.png"><br>
+							 <img class="myimg" src="assets2/img/S3-8.png"><br>
+							 <br>
+							 <p><b>3. Enable Static Website Hosting :</b> Now we have to enable Static Website Hosting by going to the <b>Properties</b> tab and scroll to the bottom, and enable Static Website Hosting </p>
+							 <img class="myimg" src="assets2/img/S3-9.png"><br>
+							 <img class="myimg" src="assets2/img/S3-10.png"><br>
+
+							 <p><b>4. Copy the Url of your Website :</b> After enabling the website hosting, AWS will provide you an end point which can be used to browse your website. Simply copy it and Paste to your browser.</p>
+							 <img class="myimg" src="assets2/img/S3-11.png"><br>
+							 <img class="myimg" src="assets2/img/S3-13.png">
+							 <p>You can see that my Portfolio is succesfully hosted on S3.</p>
+
+							
+						
+
+                            </div>
+                          </div>
+                      </div>
+                 </div>
+
+
+
+
+
+			    
+			        <nav class="blog-nav nav nav-justified my-5">
+				     <a class="nav-link-prev nav-item nav-link rounded" href="docker.html">Previous<i class="arrow-prev fas  fa-long-arrow-alt-left"></i></a>
+				     <a class="nav-link-next nav-item nav-link d-none rounded" href="#">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				    </nav>
+				
+		        </div>
+	</section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <b>Ram Sharma</b></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+          
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
+
+</body>
+</html> 

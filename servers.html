@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"> 
+<head>
+    <title>Projects</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="assets2/icon4.png" type="image/x-icon">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-5.css">
+	<style>
+		.cmd{
+			background-color: rgba(0, 0, 0, 0.9); border-radius: 0.2ch; padding: 12px; color: whitesmoke;
+		}
+	</style>
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Portfolio</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+							
+					
+					<div class="bio mb-3">
+					<ul class="social-list list-inline py-3 mx-auto">
+			           
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="#">Servers<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="ansible.html">Ansible</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="docker.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="jenkins.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="monitoring.html">Monitoring</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="aws.html">AWS</a>
+					</li>
+					<!--
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Nagios</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">AWS</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Kubernetes</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Terraform</a>
+					</li>
+					-->
+				</ul>
+				
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h1 class="">Deploying Servers</h1>
+			    <div class="intro"> </div>
+			   
+		    </div><!--//container-->
+	    </section>
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div>
+			    <div class="item mb-5">
+				    <div class="">
+					    
+					    <div class="media-body">
+						    <h3 class="mb-2">How to Deploy an Apache Server</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Apache is a popular open-source web   server that can be deployed on a variety of operating systems, including Linux, Windows, and macOS. In this blog post, we will walk you through the steps on how to deploy an Apache server on a Linux machine.</p><br>
+							 <p><b>1. Install Apache :</b>
+								The first step is to install Apache on your Linux machine. To do this, open a terminal window and run the following command on debian based Linux distributions like Ubuntu, Debian, etc:</p>
+
+							 <pre class="cmd">[ubuntu@server ~]# sudo apt install apache2 -y</pre>
+							
+							 <p>If you are using rpm based linux distribution such as Centos, RHEL, Amazon Linux,etc. Then 	run the following command: </p>
+
+							 <pre class="cmd">[root@server ~]# sudo yum install httpd -y</pre><br>
+
+							 <p><b>2. Enable Apache :</b>
+								To start the Apache Server, use the following command: </p>
+
+							 <pre class="cmd">[ubuntu@server ~]# sudo systemctl enable --now apache2</pre>
+
+							 <p>On RPM based Distributions, run the following command:</p>
+
+							 <pre class="cmd">[root@server ~]# sudo systemctl enable --now httpd</pre><br>
+
+							 <p><b>3. Test Apache :</b> Now the Apache Service is running, you can test it to make sure that it is working properly. To do this, run <b>curl localhost</b> command or open a web browser and navigate to <b>http://localhost</b>. If you see the Apache Welcome page, then it is working properly.</p>
+							 <p>If you do not see the welcome page, make sure that the apache service is running and port <b>80</b> is allowed. </p><br>
+
+							 <p><b>4. Deploying Simple Website :</b> To deploy your own website, you can put your code into the Document Root of Apache which is <b>/var/www/html</b>. Make sure that your <b>index.html</b> file is present in the Document Root.</p>
+
+						  </div>
+						    
+					    </div><!--//media-body-->
+				    </div><!--//media--> 
+			    </div><!--//item-->
+
+			    <div class="item mb-5">
+				    <div class="media">
+					    <div class="media-body">
+						    <h3 class="mb-2">How to deploy a private DNS Server</h3>
+						    
+						    <div class="py-2 text-justify" style="font-size: 1.4em;"><p>A private DNS server is a DNS server that is used to resolve domain names within a private network. This can be useful for a number of reasons, such as improving performance and security. By deploying your private DNS server, you can have more control over your network's DNS queries and responses.</p><br>
+								<p><b>1. Install BIND :</b>
+									The first step is to update your system and install a DNS software on your system. To do this, run the following command on Ubuntu/Debian :</p>
+	
+								 <pre class="cmd">[ubuntu@server ~]# sudo apt update -y<br>sudo apt install bind9 -y</pre>
+
+								 <p>On RPM based Distributions, run the following command:</p>
+
+								 <pre class="cmd">[root@server ~]# sudo yum update -y<br>sudo yum install bind -y</pre><br>
+								 
+								<p><b>2. Configure BIND :</b>
+								    After installing BIND, we need to configure it using the <b>/etc/named.conf</b> file. Add the following lines in the configuration file : </p> 
+									
+									<pre class="cmd">options{<br>directory "/var/named";<br>recursion no;<br>};<br>zone "ramsharma.site" IN{<br>type master;<br>file "ram";<br>}; </pre>
+									<p>The "options" field containes the document root of the DNS which is <b>/var/named</b>. The "zone" field contains the <b>Domain Name</b> and <b>Zone file</b> in which all the DNS records are listed. In my case, I have my Domain name "ramsharma.site" and the zone file name is "ram".</p><br>
+
+								<p><b>3. Create DNS Zone file :</b> We have to create a zone file in the <b>/var/named</b> directory with the same name which is mentioned in the <b>/etc/named.conf</b> file. In my case, I am creating a file named <b>ram</b> and adding the DNS records in it : </p>
+
+								<pre class="cmd">$TTL 1M <br>$TTL 1M
+@ IN SOA @ rname.invalid. (
+                                0 ; serial
+                                1D ; refresh
+                                1H ; retry
+                                1W ; expire
+                                3H ) ; minimum
+@          IN        NS               ns1.ramsharma.site.
+@          IN        NS               ns2.ramsharma.site.
+ns1        IN        A                13.232.100.7
+ns2        IN        A                13.232.100.7
+@          IN        A                17.20.120.40
+									
+								</pre><br>
+
+								<p><b>4. Start the DNS Service : </b>After making correct entry in configuration file and creating a zone file, we have to start the DNS service in your system by the following command :</p>
+								
+								<pre class="cmd">[root@server ~]# sudo systemctl enable --now named</pre>
+								<p>The DNS service uses the <b>Port 53</b>. Make sure that the port is allowed. If all the entries are correct then the DNS service should start. If your <b>named</b> service is not starting then there is a possibility that the entry made in configuration file are not correct.  </p>
+
+							</div>
+						    
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    
+
+				<div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">How to Get Free SSL Certificate</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Running your Website with a Secure Connection requires obtaining a SSL Certificate. The SSL Certificate is provided by the Certificate Authority (CA). Generally we have to purchase these certificates in order to use them, But we can also get it for free with Let's Encrypt.  Let's Encrypt is a trusted CA that provides free SSL certificates for securing websites. Here are the steps to get a free SSL certificate from Let's Encrypt :</p><br>
+
+							<p><b>1. Insert Certbot (Let's Encrypt Client) : </b>Certbot is an official tool provided by Let's Encrypt to obtain and manage SSL certificates automatically. I am asuming that you have already configured your webserver with your domain name. Also allow the <b>Port 443</b> on your system. Now to install Certbot on your server, run the following command : </p>
+							<pre class="cmd">[ubuntu@server ~]# sudo apt install certbot python3-certbot-apache <span style="color: green;">#For Apache</span></pre><pre class="cmd">[ubuntu@server ~]# sudo apt install certbot python3-certbot-nginx<span style="color:green;"> #For NGINX</span></pre><br>
+							
+							<p><b>2. Obtain SSL Certificate : </b>In order to obtain the certificate, simplly run the following command : </p>
+
+							<pre class="cmd">[ubuntu@server ~]# sudo certbot --apache <span style="color: green;">#For Apache</span><br></pre><pre class="cmd">[ubuntu@server ~]# sudo certbot --nginx <span style="color: green;">#For NGINX</span></pre>
+							<p>Certbot will then prompt you to enter an email address for renewal and security notifications, and you will be asked if you agree to the terms of service. After agreeing, Certbot will automatically configure SSL and obtain the certificate for your domain.</p>
+
+                            <p><b>3. Automating Certificate Renewal : </b> Let's Encrypt certificates are valid for some days, so it's essential to renew them periodically. Certbot automatically sets up a cron job for certificate renewal. However, it's a good practice to test the renewal process before relying on the automated renewal. You can test the renewal with the dry run command : </p>
+
+							<pre class="cmd">[ubuntu@server ~]# sudo certbot renew --dry-run</pre>
+
+							<p>If everything works correctly, you should see a message indicating that the dry run was successful.</p>
+
+						  </div>
+						    
+					    </div><!--//media-body-->
+				    </div><!--//media--> 
+			    </div><!--//item-->
+
+
+			    <div class="item mb-5">
+				    <div class="media">
+					    <div class="media-body">
+						    <h3 class="mb-2">Deploying a Database Server</h3>
+						    <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>A database server is a specialized computer system or software application that provides database management services to other computers or applications on a network. To deploy a database server, you'll need to install the MariaDB/MySQL server package. Here is the step-by-step guide to configure database server : </p>
+						   <p><b>1. Install the MySQL/MariaDB package :</b> Run the following command to install the MariaDB server package :</p>
+						   <pre class="cmd">[ubuntu@server ~]# sudo apt update -y<br>sudo apt install mariadb-server -y</pre><br>
+						   <p><b>2. Start and Enable MariaDB :</b> After installation, start the MariaDB service and enable it to start on boot by the folowing command :</p>
+						   <pre class="cmd">[ubuntu@server ~]# sudo systemctl enable --now mariadb</pre><br>
+						   <p><b>3. Secure MariaDB Installation :</b> We must do the secure installlation of MariaDB to set a root password, remove anonymous users, allow or disallow root login remotely, and more. We can do this by running the secure installation script as follows :</p>
+						   <pre class="cmd">[ubuntu@server ~]# sudo mysql_secure_installation</pre><br>
+						   <p><b>4. Accessing MySQL :</b> To access the MySQL shell as the root user, use the following command and enter the root password when prompted :</p>
+						   <pre class="cmd">[ubuntu@server ~]# sudo mysql -u root -p</pre>
+
+						   </div>
+					    </div><!--//media-body-->
+				    </div><!--//media--> 
+			    </div><!--//item-->
+
+			    
+			    
+			    <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-prev nav-item nav-link d-none rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				  <a class="nav-link-next nav-item nav-link rounded" href="ansible.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				</nav>
+				
+		    </div>
+	    </section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <b>Ram Sharma</b></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
+
+</body>
+</html> 
+

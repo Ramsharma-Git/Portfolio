@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"> 
+<head>
+    <title>Projects</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="assets2/icon4.png" type="image/x-icon">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-5.css">
+	<style>
+		.cmd{
+			background-color: rgba(0, 0, 0, 0.9); border-radius: 0.2ch; padding: 12px; color: whitesmoke;
+
+		}
+	</style>
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Portfolio</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+							
+					
+					<div class="bio mb-3">
+					<ul class="social-list list-inline py-3 mx-auto">
+			           
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="servers.html">Servers</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="ansible.html">Ansible</a>
+					</li>
+					<li class="nav-item active">
+					    <a class="nav-link" href="docker.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="jenkins.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="monitoring.html">Monitoring</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="aws.html">AWS</a>
+					</li>
+					<!--
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Nagios</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">AWS</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Kubernetes</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Terraform</a>
+					</li>
+					-->
+				</ul>
+				
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h1 class="">Building Containers with Docker</h1>
+			    <div class="intro"> </div>
+			   
+		    </div><!--//container-->
+	    </section>
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		        <div>
+
+
+			      <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Running Simple Website inside Container</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Containers are light weight isolated enviornment in which we can run your applications plateform independently. I will deploy a simple website in the form of a container using Docker.</p><br>
+							 <p><b>1. Install Docker from Docker.io :</b>
+								We can install Docker from the official site Docker.io , I will show you the steps how to install docker-ce on RHEL and Ubuntu. Simply follow these steps : </p>
+                                <p>For Ubuntu/Debian :</p>
+                                <p>&nbsp; &nbsp; &nbsp; Unistall old and conflicting packages </p>
+                                <pre class="cmd">for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done</pre>
+                                <p>&nbsp; &nbsp; &nbsp; Update the apt package & install these packages</p>
+                                <pre class="cmd">sudo apt-get update<br>sudo apt-get install ca-certificates curl gnupg</pre>
+                                <p>&nbsp; &nbsp; &nbsp; Add Docker's Official GPG key</p>
+                                <pre class="cmd">sudo install -m 0755 -d /etc/apt/keyrings<br>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg<br>sudo chmod a+r /etc/apt/keyrings/docker.gpg</pre>
+                                <p>&nbsp; &nbsp; &nbsp; Use the following command to set up the repository</p>
+                                <pre class="cmd">echo \<br>"deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \<br>"$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \<br>sudo tee /etc/apt/sources.list.d/docker.list > /dev/null</pre>
+                                <p>&nbsp; &nbsp; &nbsp; Install Docker Engine</p>
+                                <pre class="cmd">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</pre><br>
+                                <p>For RHEL/CentOS/Fedora/Amazon Linux :</p>
+                                <p>&nbsp; &nbsp; &nbsp; Unistall Old Versions</p>
+                                <pre class="cmd">sudo yum remove docker \<br>docker-client \<br>docker-client-latest \<br>docker-common \<br>docker-latest \<br>docker-latest-logrotate \<br>docker-logrotate \<br>docker-engine</pre>
+                                <p>&nbsp; &nbsp; &nbsp; Set up Repository</p>
+                                <pre class="cmd">sudo yum install -y yum-utils<br>sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</pre>
+                                <p>&nbsp; &nbsp; &nbsp; Install Docker Engine</p>
+                                <pre class="cmd">sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</pre><br>
+
+                                <p><b>2. Run a Container using httpd image :</b> Now the next step is to create a container using httpd image and mount the port 80 of the machine to the port 80 of container. This command will create a container named <b>myweb</b> :</p>
+                                <pre class="cmd">[root@docker ~]# docker container run --name myweb -p 80:80 httpd </pre><br>
+                                <p><b>3. Copy the content you want to display :</b> After running the contaier, the next step is to copy the content. In my case i am going to copy a simple <b>index.html</b> file from my local machine to inside the document root of the container :</p>
+                                <pre class="cmd">[root@docker ~]# docker cp ./index.html  myweb:/usr/local/apache2/htdocs/</pre>
+                                <br>
+                                <p><b>4. Access the Website :</b> Now you can access the website by typing http://localhost in your browser or simple use curl command :</p>
+                                <pre class="cmd">[root@docker ~]# curl localhost<br>Welcome to my Container!!!</pre><br>
+
+                            </div>
+                          </div>
+                      </div>
+                 </div>
+
+
+
+				 <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Create Images with Commit and Dockerfile Method</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>We can also create our own images using Commit Method and Dockerfile Method. To create docker images, simply follow these steps :</p><br>
+							 <p><b>1. Commit Method :</b>
+								In Commit Method, we can create images with the help of a running container. In my case I have already deployed a container named <b>myweb</b>, now we can simply run this command to create an image with it : </p>
+                
+                                
+                                <pre class="cmd">[root@docker ~]# docker commit myweb my-image:v1</pre>
+                                
+                               <p>In the above command we first specify the container name "<b>myweb</b>" and then give the image name which is going to be created "<b>my-image</b>" with the tag "<b>v1</b>". If we do not give the tag than it will pick the default tag "<b>latest</b>"</p>
+								<br>
+
+								<p><b>2. Dockerfile Method : </b>We can define the image's configuration and dependencies in a declarative manner in the Dockerfile method. It is more structured and recommended approach to create a Dockerfile. I am going to create the same image with Dockerfile method by these steps : </p>
+								<p>Create a file with name Dockerfile and make the following entry : </p>
+								<pre class="cmd">FROM httpd
+COPY ./index.html /usr/local/apache2/htdocs
+EXPOSE 80
+CMD ["httpd-foreground"]</pre>
+								<p>Make sure that the <b>index.html</b> file is present in the same directory where the <b>Dockerfile</b> is being created. Now we can build the image from Dockerfile via the following command :</p>
+								<pre class="cmd">[root@docker ~]# docker build -t my-dockerimage .</pre>
+								<p>This command will create an Image named <b>my-dockerimage</b>. Now we can deploy a container using this image by the following command :</p>
+								<pre class="cmd">[root@docker ~]#  docker container run -d -p 80:80 my-dockerimage<br>885e9a7ce1cfcc133ce8a14c678437a92a608009836a3834abd0fd45c2de032f</pre>
+								<p>Now to check that the container is running, curl your localhost</p>
+								<pre class="cmd">[root@docker ~]# curl localhst<br>Welcome to my Container!!! </pre>
+
+
+                            </div>
+                          </div>
+                      </div>
+                 </div>
+
+
+
+				 <div class="item mb-5">
+				    <div>
+					    
+					    <div class="media-body">
+						    <h3 class="mb-2">Creating Mario Game image and uploading to DockerHub</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>We can also upload images to the official Image Repository of docker which is Docker Hub. We have create an acoount first on Docker Hub and we all set to upload your images.</p><br>
+							 <p><b>1. Creating Dockerfile :</b>
+								I have the code of my Mario Game and in the same directory i am going to create a Dockerfile. The requirements of the game is a webserver with javascript, and it will run on port 80. So, according to the requirements, i created the Dockerfile whcich is as follow :</p>
+								<pre class="cmd">FROM ubuntu
+RUN apt update -y
+RUN apt install nodejs -y
+RUN apt install apache2 -y
+EXPOSE 80
+COPY . /var/www/html/
+CMD ["apache2ctl", "-D", "FOREGROUND"]</pre>
+
+									<p>In this image, i have used an ubuntu base image, then i install nodejs and apache2 packages, copy the code to the document root of the apache inside the container. And last execute the command to run the apache service.</p>
+									<p>Now we have to build the image. But keep one thing in mind that in order to upload your image to Docker Hub, the image name should be in the following format : <b>username/imagename/version</b> , wher username is your username on Docker Hub and imagename is the name you want to give tor tag. In my case i will give he image name as <b>ramsharma8899/mygame</b>.<br>Now , to build the image runthe following command : </p>
+									<pre class="cmd">[root@docker ~]# docker build -t ramsharma8899/mygame .</pre>
+									<br>
+									<p><b>2. Running the Game Image :</b> Now the image is build , we can create a container and play the Mario Game.</p>
+									<pre class="cmd">[root@docker ~]# docker container run -d -p 80:80 ramsharma8899/mygame</pre>
+									<p>Now the container have launched, we can play the game simply by copy your machine's IP into a web browser.</p>
+									<img style="display: block; width: 100%;" src="assets2/img/mario.png">
+
+									<p><b>3. Uploading my image to Docker Hub :</b> In order to upload the image, we must login to the Docker Hub via the command line interface, for this run the command <b>docker login</b>, then it will promt you the username and password :<p>
+
+									<pre class="cmd">[root@server ~]# docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: ramsharma8899
+Password: 
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded</pre>
+
+                            </div>
+                          </div>
+                      </div>
+                 </div>
+
+
+			    
+			        <nav class="blog-nav nav nav-justified my-5">
+				     <a class="nav-link-prev nav-item nav-link rounded" href="ansible.html">Previous<i class="arrow-prev fas  fa-long-arrow-alt-left"></i></a>
+				     <a class="nav-link-next nav-item nav-link rounded" href="jenkins.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				    </nav>
+				
+		        </div>
+	</section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <b>Ram Sharma</b></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+          
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
+
+</body>
+</html> 

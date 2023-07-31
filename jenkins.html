@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"> 
+<head>
+    <title>Projects</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="assets2/icon4.png" type="image/x-icon">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-5.css">
+	<style>
+		.cmd{
+			background-color: rgba(0, 0, 0, 0.9); border-radius: 0.2ch; padding: 12px; color: whitesmoke;
+		}
+        
+        .myimg{
+            display: block;
+            width: 100%;
+        }
+
+
+    </style>
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Portfolio</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+							
+					
+					<div class="bio mb-3">
+					<ul class="social-list list-inline py-3 mx-auto">
+			           
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="servers.html">Servers</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="ansible.html">Ansible</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="docker.html">Docker</a>
+					</li>
+					<li class="nav-item active">
+					    <a class="nav-link" href="jenkins.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="monitoring.html">Monitoring</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="aws.html">AWS</a>
+					</li>
+					<!--
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Nagios</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">AWS</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Kubernetes</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Terraform</a>
+					</li>
+					-->
+				</ul>
+				
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h1 class="">CI/CD with Jenkins</h1>
+			    <div class="intro"> </div>
+			   
+		    </div><!--//container-->
+	    </section>
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		        <div>
+
+
+			      <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Installing Jenkins on RHEL</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Jenkins is a popular Open Source Integration tool which is used for creating CI/CD Pipelines. It is easy to use and can be installed on any Operating System. It is made on Java and therefore, JDK (Java Development Kit) is required for installing Jenkins. </p><br>
+							 <p><b>1. Creating repo and installing packages :</b>
+								To create the Repo, simply copy the commands :</p>
+                                <pre class="cmd">[root@server ~]# sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo<br>sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key</pre>
+                                <p>Now, install the packages :</p>
+                                <pre class="cmd">[root@server ~]# sudo dnf install java-17-openjdk<br>sudo dnf install jenkins<br>sudo systemctl daemon-reload</pre>
+                                <p>Start Jenkins :</p>
+                                <pre class="cmd">[root@server ~]# sudo systemctl enable --now jenkins</pre>
+                                <p>If you have Firewall installed, you must allow port 8080 which is used by Jenkins :</p>
+                                <pre class="cmd">[root@server ~]# firewall-cmd --permanent --alow-port 8080/tcp<br>success<br>[root@server ~]# firewall-cmd --reload<br>success</pre>
+                                <br>
+                                <p><b>2. Accessing the Jenkins Dashboard : </b>To access Jenkins Dashboard, open browser and go to http://localhost:8080 , you will see the following Output :</p>
+
+                                <img class="myimg" src="assets2/img/j1.png"><br>
+
+                                <p> When we access Jenkins for the first time, it requires an Administrator Password which is generated in the <b>/var/lib/jenkins/initialAdminPassword</b> file. Simply copy the password and paste it here and after click to Continue button. You will be asked to Install some plugins for Jenkins :</p>
+
+                                <img class="myimg" src="assets2/img/j2.png"><br>
+
+                                <p>After installing plugins, you will be prompted to create an Admin User. </p>
+
+                                <img class="myimg" src="assets2/img/j3.png"><br>
+
+                                <p>After creating Admin User, Jenkins will ask you the root URL which will be used for absolute links to various Jenkins Resource. By default it runs on localhost port 8080. </p>
+                                <img class="myimg" src="assets2/img/j4.png"><br>
+                                <p>Click on Start Using Jenkins</p>
+                                <img class="myimg" src="assets2/img/j5.png"><br>
+                                <P>Now you have the access of Jenkins Dashboard !!!</P>
+                                <img class="myimg" src="assets2/img/j6.png"><br>
+                                
+
+                            </div>
+                          </div>
+                      </div>
+                 </div>
+
+
+				 <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Creating a CI/CD project via Jenkins</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>The objective of this project is to create an automated pipeline for deploying a website on a Docker container using Jenkins, Git, Ansible, and Docker. The pipeline ensures that whenever there is a code change in the website's repository, the updated code is automatically copied to the Docker host, and a new Docker image is built and deployed on the host. </p>
+							<p><b>Components </b></p>
+							<p><b>1. Git Repository</b> : To host the Website's code and Dockerfile.</p>
+							<p><b>2. Jenkins Server</b> : To trigger the deployment process when new commits are made.</p>
+							<p><b>3. Docker Host</b> : To run Containers.</p>
+							<p><b>4. Ansible Playbook</b> : To automate the image building and container launching task.</p><br>
+							<p><b>Follow these Steps to Create the Project</b></p>
+							<p><b>1. Creating a new Project : </b>I am creating a new project named <b>MyFirstCICD</b> of type <b>Pipelilne</b>. </p>
+							<img class="myimg" src="assets2/img/CICD1.png"><br>
+							<br>
+							<p><b>2. Configure the Project :</b> Select the <b>GitHub project</b> option and paste the URL of your Git Repository which containes Code.</p>
+							<img class="myimg" src="assets2/img/CICD2.png"><br>
+							<br>
+							<p><b>3. Create the Groovy Script :</b> You will see a <b>Script</b> field, we have to paste the groovy script there and click on Save. </p>
+							<img class="myimg" src="assets2/img/CICD3.png">
+							<br>
+							<p>This is the full script which i have used :</p>
+							<pre class="cmd">pipeline {
+    agent any
+
+    stages {
+        stage('Fetching Code from Git') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'Jenkins', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /var/lib/jenkins/workspace/MyFirstCICD
+mv -f * /root/docker''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+        stage('Building Image') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'Jenkins', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /root/ansible
+ansible-playbook docker1.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+        stage('Creating Container') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'Jenkins', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /root/ansible
+ansible-playbook docker2.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+        stage('Pushing Image to DockerHub') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'Jenkins', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /root/ansible
+ansible-playbook docker3.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+       
+    }
+}
+</pre>						<p>In this Script, there are 4 Stages. The first stage is to pulling code from Github, Second Stage is to build an Image using that code via an Ansible Playbook, Third Stage is to Creating container from that image. And the last Stage is to Push the image to DockerHub. In all these stages, I have used Ansible Playbooks. </p><br>
+
+
+							<p><b>4. Build the Pipeline :</b> Now we are all set to Build our CICD pipeline. Move the curser to the Project name and then click on <b>Build Now</b>.</p>
+							<img class="myimg" src="assets2/img/CICD4.png"><br>
+							<p>This will Start Building the Job and display this output : </p>
+							<img class="myimg" src="assets2/img/CICD5.png"><br>
+							<p>Here you can See that all stages are worked successfuly!! This means that the container have launched, this is the output of that website which is running on container :</p>
+							<img class="myimg" src="assets2/img/CICD6.png"><br>
+
+						  </div>
+					    </div>
+					</div>
+				 </div>
+
+
+
+
+			    
+			        <nav class="blog-nav nav nav-justified my-5">
+				     <a class="nav-link-prev nav-item nav-link rounded" href="docker.html">Previous<i class="arrow-prev fas  fa-long-arrow-alt-left"></i></a>
+				     <a class="nav-link-next nav-item nav-link rounded" href="monitoring.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				    </nav>
+				
+		        </div>
+	</section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <b>Ram Sharma</b></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+          
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
+
+</body>
+</html> 

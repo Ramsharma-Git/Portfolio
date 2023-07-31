@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"> 
+<head>
+    <title>Projects</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="../assets2/icon4.png" type="image/x-icon">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-5.css">
+	<style>
+		.cmd{
+			background-color: rgba(0, 0, 0, 0.9); border-radius: 0.2ch; padding: 12px; color: whitesmoke;
+		}
+        
+        .myimg{
+            display: block;
+            width: 100%;
+        }
+
+
+    </style>
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Portfolio</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+							
+					
+					<div class="bio mb-3">
+					<ul class="social-list list-inline py-3 mx-auto">
+			           
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="servers.html">Servers</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="ansible.html">Ansible</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="docker.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="jenkins.html">Jenkins</a>
+					</li>
+					<li class="nav-item active">
+					    <a class="nav-link" href="monitoring.html">Monitoring</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="aws.html">AWS</a>
+					</li>
+					<!--
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Nagios</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">AWS</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Kubernetes</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Terraform</a>
+					</li>
+					-->
+				</ul>
+				
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h1 class="">Basic Monitoring in Linux</h1>
+			    <div class="intro"> </div>
+			   
+		    </div><!--//container-->
+	    </section>
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		        <div>
+
+
+			      <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Linux Monitoring Commands</h3>
+                            <div class=" py-2 text-justify" style="font-size: 1.4em;">
+                                <p><b>1. Top :</b> <b>Top</b> command is a performance monitoring program that is used frequently by many system administrators to monitor Linux performance and it is available under many Linux/Unix-like operating systems.</p>
+                                <img class="myimg" src="assets2/img/m1.png"><br>
+                                <p>There is a one more similar command like Top , <b>Htop</b>. This provides a more advance feature and a colorful utput.</p>
+                                <img class="myimg" src="assets2/img/m2.jpg"><br>
+                                <p>You can simply run <b>dnf install htop -y</b> command to install the htop command.</p>
+                                <br>
+                                <p><b>2. VmStat :</b> VmStat command is used to display statistics of virtual memory, kernel threads, disks, system processes, I/O blocks, interrupts, CPU activity, and much more. You need to install the <b>sysstat</b> package to use the vmstat command. It provides the following output :</p>
+                                <pre class="cmd">[root@server ~]# vmstat<br>procs -----------memory---------- ---swap-------io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0  43008 275212   1152 561208    4   16   100   105   65  113  0  1 96  3  0 </pre><br>
+                                    <p><b>3. Lsof :</b> The lsof command is used in many Linux/Unix-like systems to display a list of all the open files and the processes. The open files included are disk files, network sockets, pipes, devices, and processes. This is used mainly when a disk cannot be unmounted and displays the error that files are being used or opened. The most common format for <b>lsof</b> command is :</p>
+                                    <pre class="cmd">[root@server ~]# lsof<br>COMMAND     PID   TID TASKCMD             USER   FD      TYPE             DEVICE SIZE/OFF       NODE NAME
+systemd       1                           root  cwd       DIR                8,2      224        128 /
+systemd       1                           root  rtd       DIR                8,2      224        128 /
+systemd       1                           root  txt       REG                8,2  1567768  134930842 /usr/lib/systemd/systemd
+systemd       1                           root  mem       REG                8,2  2714928  134261052 /usr/lib64/libm-2.28.so
+systemd       1                           root  mem       REG                8,2   628592  134910905 /usr/lib64/libudev.so.1.6.11
+systemd       1                           root  mem       REG                8,2   969832  134261204 /usr/lib64/libsepol.so.1
+systemd       1                           root  mem       REG                8,2  1805368  134275205 /usr/lib64/libunistring.so.2.1.0
+systemd       1                           root  mem       REG                8,2   355456  134275293 /usr/lib64/libpcap.so.1.9.0
+systemd       1                           root  mem       REG                8,2   145984  134261219 /usr/lib64/libgpg-error.so.0.24.2
+systemd       1                           root  mem       REG                8,2    71528  134270542 /usr/lib64/libjson-c.so.4.0.0
+systemd       1                           root  mem       REG                8,2   371736  134910992 /usr/lib64/libdevmapper.so.1.02
+systemd       1                           root  mem       REG                8,2    26704  134275177 /usr/lib64/libattr.so.1.1.2448
+systemd       1                           root  mem       REG                8,2  3058736  134919279 /usr/lib64/libcrypto.so.1.1.1c
+...</pre><br>                   
+                                        <p><b>4. Tcpdump :</b> The tcpdump command is one of the most widely used command-line network packet analyzer or packets sniffer programs that is used to capture or filters TCP/IP packets that are received or transferred on a specific interface over a network.</p>
+                                        <pre class="cmd">[root@server ~]# tcpdump<br>tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on enp0s3, link-type EN10MB (Ethernet), capture size 262144 bytes
+10:19:34.635893 IP tecmint.ssh > 192.168.0.124.45611: Flags [P.], seq 2840044824:2840045032, ack 4007244093
+10:19:34.636289 IP 192.168.0.124.45611 > tecmint.ssh: Flags [.], ack 208, win 11768, options 
+10:19:34.873060 IP _gateway.57682 > tecmint.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; UNICAST
+10:19:34.873104 IP tecmint > _gateway: ICMP tecmint udp port netbios-ns unreachable, length 86
+10:19:34.895453 IP _gateway.48953 > tecmint.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; UNICAST
+10:19:34.895501 IP tecmint > _gateway: ICMP tecmint udp port netbios-ns unreachable, length 86
+10:19:34.992693 IP 142.250.4.189.https > 192.168.0.124.38874: UDP, length 45
+10:19:35.010127 IP 192.168.0.124.38874 > 142.250.4.189.https: UDP, length 33
+10:19:35.135578 IP _gateway.39383 > 192.168.0.124.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; UNICAST
+10:19:35.135586 IP 192.168.0.124 > _gateway: ICMP 192.168.0.124 udp port netbios-ns unreachable, length 86
+10:19:35.155827 IP _gateway.57429 > 192.168.0.124.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; UNICAST
+10:19:35.155835 IP 192.168.0.124 > _gateway: ICMP 192.168.0.124 udp port netbios-ns unreachable, length 86
+...</pre>
+                                <br>
+                                <p><b>5. Netstat :</b> The netstat is a command-line tool for monitoring incoming and outgoing network packets statistics as well as interface statistics. It is a very useful tool for every system administrator to monitor network performance and troubleshoot network-related problems.</p>
+                                <pre class="cmd">[root@server ~]# netstat<br>Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 0.0.0.0:sunrpc          0.0.0.0:*               LISTEN
+tcp        0      0 tecmint:domain          0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN
+tcp        0      0 localhost:postgres      0.0.0.0:*               LISTEN
+tcp        0      0 tecmint:ssh             192.168.0.124:45611     ESTABLISHED
+tcp6       0      0 [::]:sunrpc             [::]:*                  LISTEN
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN
+tcp6       0      0 localhost:postgres      [::]:*                  LISTEN
+udp        0      0 0.0.0.0:mdns            0.0.0.0:*
+udp        0      0 localhost:323           0.0.0.0:*
+udp        0      0 tecmint:domain          0.0.0.0:*
+udp        0      0 0.0.0.0:bootps          0.0.0.0:*
+udp        0      0 tecmint:bootpc          _gateway:bootps         ESTABLISHED
+...</pre>
+                            <br>
+                            <p><b>6. Iotop :</b> iotop is also much similar to top command and htop program, but it has an accounting function to monitor and display real-time Disk I/O and processes.
+
+                                iotop tool is much useful for finding the exact process and high used disk read/writes of the processes. You need to install the <b>iotop</b> package in order to use the iotop command.</p>
+                                <img class="myimg" src="assets2/img/m2.png">
+                            
+                            </div>
+                           </div>
+                        
+                      </div>
+                 </div>
+
+
+
+
+
+			    
+			        <nav class="blog-nav nav nav-justified my-5">
+				     <a class="nav-link-prev nav-item nav-link rounded" href="jenkins.html">Previous<i class="arrow-prev fas  fa-long-arrow-alt-left"></i></a>
+				     <a class="nav-link-next nav-item nav-link rounded" href="aws.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				    </nav>
+				
+		        </div>
+	</section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <b>Ram Sharma</b></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+          
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
+
+</body>
+</html> 

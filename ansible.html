@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"> 
+<head>
+    <title>Projects</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="assets2/icon4.png" type="image/x-icon">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-5.css">
+	<style>
+		.cmd{
+			background-color: rgba(0, 0, 0, 0.9); border-radius: 0.2ch; padding: 12px; color: whitesmoke;
+		}
+	</style>
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Portfolio</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+							
+					
+					<div class="bio mb-3">
+					<ul class="social-list list-inline py-3 mx-auto">
+			           
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="servers.html">Servers</a>
+					</li>
+					<li class="nav-item active">
+					    <a class="nav-link" href="#">Ansible<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="docker.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="jenkins.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="monitoring.html">Monitoring</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="aws.html">AWS</a>
+					</li>
+					<!--
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Docker</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Jenkins</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Nagios</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">AWS</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Kubernetes</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html">Terraform</a>
+					</li>
+					-->
+				</ul>
+				
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h1 class="">Automation with Ansible</h1>
+			    <div class="intro"> </div>
+			   
+		    </div><!--//container-->
+	    </section>
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div>
+			    <div class="item mb-5">
+				    <div class="">
+					    
+					    <div class="media-body">
+						    <h3 class="mb-2">Creating Admin and Local Users on multiple servers.</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Creating users and setting their passwords is an easy task until there are only one or two servers, but if you want to create users on 100's pf machines than it will be a very long process. We can use Ansible to automate this manual tasks and it saves time. By following these steps you can able to to automate these tasks with ansible :</p><br>
+							 <p><b>1. Install and Configure Ansible :</b>
+								The first step is to install Ansible on your Linux machine(control node) and adding hosts(worker node) to it. In my case, I have 1 Control node and 10 Worker nodes machine which i created on AWS. Now, we have to create an <b>ansible.cfg</b> in the <b>/home/ec2-user/ansible</b> directory and make the following entries :  </p>
+
+							 <pre class="cmd">[defaults]
+remote_user = ec2-user
+inventory = inventory
+private_key_file = awsk.pem
+ask_pass = no
+host_key_checking = no
+		
+[privilege_escalation]
+become = yes
+become_ask_pass = no
+become_method = sudo
+become_user = root </pre>
+							
+							 <p>I have the private key file which i used to deploy instance on AWS in the same directory with the permission read-only. This file is used to connect remotely to the ec2-user. Now we have to create an inventory file in the ansible directory which containes host's ip addresses and their group. For my case, the inventory file has the following entries : </p>
+
+
+							 <pre class="cmd">[servers]
+worker1 ansible_host = 90.34.12.45
+worker2 ansible_host = 19.168.10.1
+worker3 ansible_host = 72.16.17.103
+worker4 ansible_host = 78.68.1.10
+worker5 ansible_host = 42.58.6.58
+worker6 ansible_host = 165.168.13.106
+worker7 ansible_host = 121.108.231.107
+worker8 ansible_host = 96.58.31.28
+worker9 ansible_host = 89.40.54.19
+worker10 ansible_host = 76.69.67.10</pre><br>
+
+							 <p><b>2. Check Connectivity :</b>
+								It is important to check the connection between the master and worker nodes. To do so, use the following command: </p>
+
+							 <p class="cmd">ansible all -m ping</p>
+								
+								<p>If the coonection is successfully established, you will see the following output :</p>
+								<pre class="cmd" style="color: green;"><span style="color: lightgrey;">[root@control ansible]# ansible all -m ping</span>
+worker1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker4 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker7 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker8 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker9 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+worker10 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
+
+							
+							 <p><b>3. Write a Playbook :</b> Now we have to create a playbook with such tasks that creates one admin user with sudo accsess and 5 local users and set 8 digit random password for every user, and stores the password in a $username-password.txt file in the present directory, the $username is the actual name of the user. I am creating a playbook named <b>users.yml</b> as follows : </p>
+
+							<pre class="cmd">
+---
+- hosts: all
+  gather_facts: false
+  vars:
+    password_file_dir: "/root/ansible/"  
+
+  tasks:
+    - name: Generate random 8-digit passwords for users
+      set_fact:
+        password_result: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=8') }}"
+
+    - name: Creating Admin user with sudo power
+      user:
+        name: admin
+        group: wheel
+        password: "{{ password_result | password_hash('sha512') }}"
+        update_password: on_create
+
+    - name: Creating Local users
+      user:
+        name: "{{ item }}"
+        password: "{{ password_result | password_hash('sha512') }}"
+      loop: 
+        - harry
+        - natasha
+        - joe
+        - tony
+        - simone
+
+    - name: Save passwords to a file on the control node
+      copy:
+        content: "password={{ password_result }}"
+        dest: "{{ password_file_dir }}/{{ item }}-password.txt"
+      loop: 
+        - admin
+        - harry
+        - natasha
+        - joe
+        - tony
+        - simone
+      delegate_to: localhost
+					
+							</pre>
+							 <p><b>4. Run the Playbook :</b> To create the users, now you can run the playbook with the following command :</p>
+							 <p class="cmd">ansible-playbook user.yml</p>
+							 <p>This will create the users and save their password in a file in the present working directory of the control node.</p>
+
+						  </div>
+						    
+					    </div><!--//media-body-->
+				    </div><!--//media--> 
+			    </div><!--//item-->
+
+			    <div class="item mb-5">
+				    <div>
+					    <div class="media-body">
+						    <h3 class="mb-2">Configuring Load Balancing using Ansible</h3>
+						    
+						    <div class="py-2 text-justify" style="font-size: 1.4em;"><p>You can easily deploy webservers using Ansible. In my case, i am going to deploy an <b>Apache</b> server on my worker1 and worker2 node, and an <b>Haproxy</b> server on worker3 node to configure a round-robin load balancing between the worker1 and worker2 nodes. </p><br>
+
+								<p><b>1. Creating a Playbook to Deploy Apache :</b>
+								First thing we need to do is to create a playbook which install apache and host a simple webpage. In my case i am writing a playbook named <b>haproxy.yml</b>, in which i will write a play which configures the apache with the content "Welcome to worker1" on worker1 node and "Welcome to worker2" on worker2 node, and second play which deploys Haproxy on worker3 node. The resulting playbook should look as follows :</p>
+	
+								 <pre class="cmd">
+---
+- hosts: worker1, worker2
+  tasks:
+    - name: Install Apache HTTPD
+      yum:
+        name: httpd
+        state: present
+
+    - name: Enable and start Apache HTTPD
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Create an index.html file with a welcome message
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+      vars:
+        welcome_message: "Welcome to {{ inventory_hostname }}"
+
+- hosts: worker3
+  tasks:
+    - name: Install HAProxy
+      yum:
+        name: haproxy
+        state: present
+
+    - name: Configure HAProxy
+      template:
+        src: templates/haproxy.cfg.j2
+        dest: /etc/haproxy/haproxy.cfg
+      notify:
+        - Restart HAProxy
+
+  handlers:
+    - name: Restart HAProxy
+      service:
+        name: haproxy
+        state: restarted
+</pre><br>
+
+								<p><b>2. Create the template files :</b>
+								    We need to create the Jinja2 template file which will be used by the above playbook. In my case, i am going to create a directory /root/ansible/templates in which i will create the template files. 
+								</p> 
+								<p>Create <b>templates/index.html.j2</b> file which includes the following variable :</p>
+
+								<pre class="cmd">
+{{ welcome_message }}
+</pre>
+							<p>Create the <b>templates/haproxy.cfg.j2</b> file with the following content :</p>
+							
+							<pre class="cmd">
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+    stats timeout 30s
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    option http-server-close
+    option forwardfor except 127.0.0.0/8
+    option redispatch
+    retries 3
+    timeout http-request 10s
+    timeout queue 1m
+    timeout connect 10s
+    timeout client 1m
+    timeout server 1m
+    timeout http-keep-alive 10s
+    timeout check 10s
+    maxconn 3000
+
+frontend http_front
+    bind *:80
+    mode http
+    default_backend http_back
+
+backend http_back
+    mode http
+    balance roundrobin
+    server worker1 90.34.12.45:80 check
+    server worker2 19.168.10.1:80 check
+
+							</pre><br>
+
+							<p><b>3. Run the Playbook :</b> Now the final step is to run the playbook named haproxy.yml with the following command :</p>
+
+							<p class="cmd">ansible-playbook  haproxy.yml</p>
+							<p>This will install the webserver and configure simple round-robin load balancing on worker1 and worker2 nodes. To verfy the load balancing, simple curl to the ip address of worker3 node. You will see that the output will change everytime you curl on ip of worker3 or refresh your browser. </p>
+							<pre class="cmd">[root@control ansible]# curl 72.16.17.103<br>Welcome to Worker1<br>[root@control ansible]# curl 72.16.17.103<br>Welcome to Worker2</pre>
+
+							</div>
+						    
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+
+
+				<div class="item mb-5">
+				    <div class="">
+					    
+					    <div class="media-body">
+						    <h3 class="mb-2">Launching EC2-Instance with Ansible</h3>
+						    
+						  <div class=" py-2 text-justify" style="font-size: 1.4em;"><p>Ansible is not only for configuration management, we can also do the infrastructure management with it. I am gonna show you how to deploy an EC2-Instance on AWS Cloud. Just simply follow these steps :</p><br>
+
+							<p><b>1. Create Access Keys on AWS :</b> We need to create Access keys in order to log in to the AWS from the Command Line Interface, for this, go to your AWS account and then Click on Security Credentials , Scroll down and create the Access Key. This will generate two Key-Value pairs Which will be used for CLI login.</p>
+
+							<p><b>2. Set Up the Environment variables :</b> Now its time to set the Environment variables in your ansible control node. You can simple use the <b>export</b> command to set the ENV or if you want to permanentlly set the ENV, put the variables in the .bashrc file.</p>
+
+							<pre class="cmd">[root@server ansible]# export AWS_ACCESS_KEY_ID=(your value here)<br>[root@server ansible]# export AWS_SECRET_ACCESS_KEY=(your value here)</pre><br>
+							
+							<p><b>3. Create the Playbook :</b> Now to launch instance, i am creating a playbook name <b>ec2.yml</b> with the following content :</p>
+
+							<pre class="cmd">---
+- name: Launch EC2 Instance
+  hosts: localhost
+  gather_facts: no
+  vars:
+    region: ap-south-1
+    ami_id: ami-0fdea1353c525c182
+    instance_type: t2.micro
+    key_name: awsk
+    count: 4
+    instance_name: MyEC2Instance  # Set the desired instance name here
+  tasks:
+  - name: Launch EC2 Instance
+    ec2:
+      region: "{{ region }}"
+      image: "{{ ami_id }}"
+      instance_type: "{{ instance_type }}"
+      key_name: "{{ key_name }}"
+      count: "{{ count }}"
+      wait: yes
+      instance_tags:
+        Name: "{{ instance_name }}"
+</pre>
+						<p>In this Playbook i defined the AMI ID , number of Instances and the name of the Instance. It will also require the private key file named awsk.pem which i puted in the same working directory. </p>
+
+					<p><b>4. Launch the Playbook : </b>Simply Launch the playbook ec2.yml to deploy instance !!</p>
+					<p class="cmd">[root@server ansible]# ansible-playbook ec2.yml</p>
+
+						  </div>
+						    
+					    </div><!--//media-body-->
+				    </div><!--//media--> 
+			    </div><!--//item-->
+
+			    
+			    
+			    <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-prev nav-item nav-link rounded" href="servers.html">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				  <a class="nav-link-next nav-item nav-link rounded" href="docker.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				</nav>
+				
+		    </div>
+	    </section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <b>Ram Sharma</b></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+          
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
+
+</body>
+</html> 
